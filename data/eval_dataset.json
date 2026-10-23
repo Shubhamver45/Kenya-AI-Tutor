@@ -1,0 +1,180 @@
+[
+  {
+    "id": "eval-01",
+    "question": "What is a fraction and what is the top number called?",
+    "language": "en",
+    "grade": 4,
+    "subject": "Mathematics",
+    "type": "in_curriculum",
+    "expected_topic": "Fractions",
+    "expected_must_contain": ["numerator", "part of a whole"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-02",
+    "question": "Can you give an example?",
+    "history": [{"role": "user", "content": "What is a fraction?"}, {"role": "assistant", "content": "A fraction represents a part of a whole."}],
+    "language": "en",
+    "grade": 4,
+    "subject": "Mathematics",
+    "type": "follow_up_rewrite",
+    "expected_topic": "Fractions",
+    "expected_must_contain": ["3/4", "parts"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-03",
+    "question": "How do green plants produce their own food?",
+    "language": "en",
+    "grade": 5,
+    "subject": "Science",
+    "type": "in_curriculum_conceptual",
+    "expected_topic": "Photosynthesis",
+    "expected_must_contain": ["sunlight", "chlorophyll"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-04",
+    "question": "What are stomata and chlorophyll?",
+    "language": "en",
+    "grade": 5,
+    "subject": "Science",
+    "type": "in_curriculum_keyword",
+    "expected_topic": "Photosynthesis",
+    "expected_must_contain": ["leaves", "carbon dioxide"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-05",
+    "question": "Who won the football match yesterday between Arsenal and Chelsea?",
+    "language": "en",
+    "grade": null,
+    "subject": null,
+    "type": "out_of_curriculum_honesty",
+    "expected_topic": null,
+    "expected_must_contain": [],
+    "must_refuse": true
+  },
+  {
+    "id": "eval-06",
+    "question": "Sehemu ni nini na nambari ya juu inaitwaje?",
+    "language": "sw",
+    "grade": 4,
+    "subject": "Hisabati",
+    "type": "in_curriculum",
+    "expected_topic": "Sehemu",
+    "expected_must_contain": ["kiashiria", "kitu kizima"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-07",
+    "question": "Onyesha mfano",
+    "history": [{"role": "user", "content": "Sehemu ni nini?"}, {"role": "assistant", "content": "Sehemu ni sehemu ya kitu kizima."}],
+    "language": "sw",
+    "grade": 4,
+    "subject": "Hisabati",
+    "type": "follow_up_rewrite",
+    "expected_topic": "Sehemu",
+    "expected_must_contain": ["3/4"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-08",
+    "question": "Moyo na mapafu hufanya kazi gani mwilini?",
+    "language": "sw",
+    "grade": 4,
+    "subject": "Sayansi",
+    "type": "in_curriculum",
+    "expected_topic": "Mwili wa Binadamu",
+    "expected_must_contain": ["damu", "oksijeni"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-09",
+    "question": "What is the difference between a proper noun and a common noun?",
+    "language": "en",
+    "grade": 6,
+    "subject": "English",
+    "type": "in_curriculum",
+    "expected_topic": "Nouns",
+    "expected_must_contain": ["proper noun", "capital letter"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-10",
+    "question": "How do you multiply a decimal like 2.4 by 10 and 100?",
+    "language": "en",
+    "grade": 5,
+    "subject": "Mathematics",
+    "type": "in_curriculum",
+    "expected_topic": "Decimals",
+    "expected_must_contain": ["decimal point", "24"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-11",
+    "question": "What happens during precipitation in the water cycle?",
+    "language": "en",
+    "grade": 6,
+    "subject": "Social Studies",
+    "type": "in_curriculum",
+    "expected_topic": "The Water Cycle",
+    "expected_must_contain": ["rain", "clouds"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-12",
+    "question": "Mzunguko wa maji huanzaje na mvuke unakuwaje mawingu?",
+    "language": "sw",
+    "grade": 6,
+    "subject": "Elimu ya Jamii",
+    "type": "in_curriculum",
+    "expected_topic": "Mzunguko wa Maji",
+    "expected_must_contain": ["jua", "mawingu"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-13",
+    "question": "What is the cryptocurrency price of Bitcoin today?",
+    "language": "en",
+    "grade": null,
+    "subject": null,
+    "type": "out_of_curriculum_honesty",
+    "expected_topic": null,
+    "expected_must_contain": [],
+    "must_refuse": true
+  },
+  {
+    "id": "eval-14",
+    "question": "How do you solve the linear equation 2x + 5 = 11?",
+    "language": "en",
+    "grade": 7,
+    "subject": "Mathematics",
+    "type": "in_curriculum",
+    "expected_topic": "Linear Equations",
+    "expected_must_contain": ["x = 3", "subtract"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-15",
+    "question": "Ni nini maana ya kiima na kitenzi katika sentensi?",
+    "language": "sw",
+    "grade": 5,
+    "subject": "Kiswahili",
+    "type": "in_curriculum",
+    "expected_topic": "Sentensi",
+    "expected_must_contain": ["kitenzi", "kiima"],
+    "must_refuse": false
+  },
+  {
+    "id": "eval-16",
+    "question": "Nani alishinda uchaguzi wa rais jana?",
+    "language": "sw",
+    "grade": null,
+    "subject": null,
+    "type": "out_of_curriculum_honesty",
+    "expected_topic": null,
+    "expected_must_contain": [],
+    "must_refuse": true
+  }
+]
