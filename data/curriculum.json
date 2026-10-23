@@ -1,0 +1,178 @@
+[
+  {
+    "id": "KICD-PRI-G4-MAT-001",
+    "grade": 4,
+    "subject": "Mathematics",
+    "strand": "Numbers",
+    "substrand": "Fractions",
+    "topic": "Definition and Components of Fractions",
+    "kicd_code": "KICD/PRI/CBC/G4/MAT/STR-01/LO-01",
+    "language": "en",
+    "text": "A fraction represents a part of a whole quantity or collection. It is written using two numbers separated by a horizontal fraction bar. The top number is called the numerator, which indicates how many equal parts are being considered. The bottom number is called the denominator, which indicates the total number of equal parts into which the whole has been divided. For example, in the fraction 3/4, the numerator is 3 and the denominator is 4, representing 3 parts out of 4 equal parts."
+  },
+  {
+    "id": "KICD-PRI-G4-MAT-002",
+    "grade": 4,
+    "subject": "Mathematics",
+    "strand": "Numbers",
+    "substrand": "Fractions",
+    "topic": "Addition of Like Fractions",
+    "kicd_code": "KICD/PRI/CBC/G4/MAT/STR-01/LO-02",
+    "language": "en",
+    "text": "To add fractions with the same denominator (like fractions), add the numerators together while keeping the common denominator unchanged. For example, 1/5 + 2/5 = (1 + 2)/5 = 3/5. In real-life contexts, if one pupil paints 1/5 of a school desk and another paints 2/5 of the same desk, together they have painted 3/5 of the desk."
+  },
+  {
+    "id": "KICD-PRI-G4-MAT-003",
+    "grade": 4,
+    "subject": "Mathematics",
+    "strand": "Numbers",
+    "substrand": "Fractions",
+    "topic": "Equivalent Fractions",
+    "kicd_code": "KICD/PRI/CBC/G4/MAT/STR-01/LO-03",
+    "language": "en",
+    "text": "Equivalent fractions are fractions that represent the same proportion or value despite having different numerators and denominators. They are formed by multiplying or dividing both the numerator and denominator by the same non-zero integer. For instance, 1/2 is equivalent to 2/4, 3/6, and 4/8. In practical measurement, one half (1/2) litre of milk is identical in volume to two quarter-litres (2/4 litres)."
+  },
+  {
+    "id": "KICD-PRI-G5-MAT-001",
+    "grade": 5,
+    "subject": "Mathematics",
+    "strand": "Numbers",
+    "substrand": "Decimals",
+    "topic": "Concept of Decimals and Place Value",
+    "kicd_code": "KICD/PRI/CBC/G5/MAT/STR-01/LO-04",
+    "language": "en",
+    "text": "A decimal fraction is a positional fractional notation where denominators are powers of ten (10, 100, 1000). The decimal point separates whole numbers from tenths and hundredths. The first digit to the right of the decimal point represents tenths (1/10 = 0.1), and the second digit represents hundredths (1/100 = 0.01). For example, 0.75 represents 7 tenths and 5 hundredths, equivalent to 75/100 or 3/4."
+  },
+  {
+    "id": "KICD-PRI-G5-MAT-002",
+    "grade": 5,
+    "subject": "Mathematics",
+    "strand": "Numbers",
+    "substrand": "Decimals",
+    "topic": "Multiplication of Decimals by Powers of 10",
+    "kicd_code": "KICD/PRI/CBC/G5/MAT/STR-01/LO-05",
+    "language": "en",
+    "text": "When multiplying a decimal by 10, the decimal point shifts one place to the right because each digit increases in place value tenfold (e.g., 3.45 × 10 = 34.5). Multiplying by 100 shifts the point two places to the right (3.45 × 100 = 345). In financial transactions, moving decimals allows straightforward conversion between Kenyan Shillings and cents."
+  },
+  {
+    "id": "KICD-PRI-G5-SCI-001",
+    "grade": 5,
+    "subject": "Science & Technology",
+    "strand": "Living Things and Environment",
+    "substrand": "Photosynthesis",
+    "topic": "Process and Requirements of Photosynthesis",
+    "kicd_code": "KICD/PRI/CBC/G5/SCI/STR-02/LO-01",
+    "language": "en",
+    "text": "Photosynthesis is the biochemical process by which green autotrophic plants manufacture glucose using sunlight, atmospheric carbon dioxide, and soil water. Leaves absorb carbon dioxide through microscopic stomatal pores. Water is transported from roots through xylem vessels. Chlorophyll, the green pigment located inside chloroplasts, absorbs solar radiant energy. The chemical transformation produces glucose (C6H12O6) for plant growth and liberates oxygen gas (O2) into the atmosphere as an essential byproduct."
+  },
+  {
+    "id": "KICD-PRI-G5-SCI-002",
+    "grade": 5,
+    "subject": "Science & Technology",
+    "strand": "Living Things and Environment",
+    "substrand": "Ecosystems",
+    "topic": "Food Chains and Trophic Energy Transfer",
+    "kicd_code": "KICD/PRI/CBC/G5/SCI/STR-02/LO-02",
+    "language": "en",
+    "text": "A food chain illustrates the sequential transfer of nutritional energy between living organisms across trophic levels in an ecosystem. It initiates with autotrophic producers (green vegetation capturing solar energy), followed by primary consumers (herbivores like grasshoppers), secondary consumers (carnivores or insectivores like frogs), and apex tertiary consumers (predators like eagles). The directional arrows signify the orientation of energy dissipation and transfer."
+  },
+  {
+    "id": "KICD-PRI-G4-SCI-001",
+    "grade": 4,
+    "subject": "Science & Technology",
+    "strand": "Living Things and Their Environment",
+    "substrand": "The Human Body",
+    "topic": "Main Internal Body Organs and Their Functions",
+    "kicd_code": "KICD/PRI/CBC/G4/SCI/STR-02/LO-01",
+    "language": "en",
+    "text": "The human body contains vital internal organs that function together in interconnected systems. The brain, protected inside the skull, acts as the central control organ that coordinates thoughts, movements, and body functions. The heart acts as a muscular pump that continuously circulates blood containing oxygen and nutrients through blood vessels to all parts of the body. The lungs, located inside the chest, are the organs of respiration that absorb oxygen from inhaled air and expel carbon dioxide. The stomach digests food into essential nutrients that provide the body with energy to grow, learn, and play."
+  },
+  {
+    "id": "KICD-PRI-G6-ENG-001",
+    "grade": 6,
+    "subject": "English",
+    "strand": "Grammar and Language Mechanics",
+    "substrand": "Parts of Speech",
+    "topic": "Classification of Nouns: Common, Proper, and Collective",
+    "kicd_code": "KICD/PRI/CBC/G6/ENG/STR-03/LO-01",
+    "language": "en",
+    "text": "A noun functions as a naming word designating a person, geographical place, physical object, or abstract concept. Proper nouns denote specific, unique entities and are always capitalised (e.g., Kenya, Nairobi, Mount Kenya, Grace). Common nouns denote general non-specific classes (e.g., city, mountain, student). Collective nouns name groups conceived as singular units (e.g., a herd of cattle in the Maasai Mara, a flock of birds, a staff of teachers)."
+  },
+  {
+    "id": "KICD-PRI-G6-ENG-002",
+    "grade": 6,
+    "subject": "English",
+    "strand": "Grammar and Language Mechanics",
+    "substrand": "Parts of Speech",
+    "topic": "Verbs and Tense Agreement",
+    "kicd_code": "KICD/PRI/CBC/G6/ENG/STR-03/LO-02",
+    "language": "en",
+    "text": "A verb expresses physical action, mental occurrence, or state of being. Every complete English sentence necessitates a finite verb with subject-verb concord. Dynamic action verbs include 'harvest', 'construct', and 'examine'. Auxiliary and stative verbs denote condition (e.g., 'is', 'are', 'were', 'remains'). In past simple tense, regular verbs annex the suffix '-ed' (e.g., 'The pupils planted indigenous acacia seedlings in the school farm')."
+  },
+  {
+    "id": "KICD-PRI-G6-SOC-001",
+    "grade": 6,
+    "subject": "Social Studies",
+    "strand": "Environment and Natural Resources",
+    "substrand": "Hydrological Systems",
+    "topic": "The Hydrological Water Cycle in East Africa",
+    "kicd_code": "KICD/PRI/CBC/G6/SOC/STR-04/LO-01",
+    "language": "en",
+    "text": "The hydrological water cycle describes the perpetual circulation of water through the Earth-atmosphere system. Solar insolation causes evaporation from water bodies (e.g., Lake Victoria, Indian Ocean) and transpiration from forested water towers like the Aberdare Range and Mount Kenya. Water vapour condenses into tropospheric clouds upon cooling, precipitating as rainfall. Runoff feeds river drainage basins (Tana, Athi, Nyando), recharging subterranean aquifers and sustaining agricultural food production."
+  },
+  {
+    "id": "KICD-PRI-G4-SWA-001",
+    "grade": 4,
+    "subject": "Kiswahili",
+    "strand": "Sarufi na Matumizi ya Lugha",
+    "substrand": "Hisabati ya Msingi",
+    "topic": "Ufafanuzi na Uainishaji wa Sehemu",
+    "kicd_code": "KICD/PRI/CBC/G4/SWA/STR-01/LO-01",
+    "language": "sw",
+    "text": "Katika somo la Hisabati, sehemu (fraction) ni kiwakilishi cha fungu au kipande cha kitu kizima. Huandikwa kwa nambari mbili zilizotenganishwa na mstari. Nambari ya juu inaitwa kiasi au kiashiria (numerator) inayoonyesha idadi ya sehemu zilizochukuliwa. Nambari ya chini inaitwa kigawanyo (denominator) inayoonyesha jumla ya sehemu zote sawa zilizogawanywa. Kwa mfano, katika sehemu 3/4, kiasi ni 3 na kigawanyo ni 4."
+  },
+  {
+    "id": "KICD-PRI-G4-SWA-002",
+    "grade": 4,
+    "subject": "Kiswahili",
+    "strand": "Sayansi na Afya",
+    "substrand": "Mwili wa Binadamu",
+    "topic": "Mifumo Mikuu ya Viungo vya Ndani",
+    "kicd_code": "KICD/PRI/CBC/G4/SWA/STR-02/LO-01",
+    "language": "sw",
+    "text": "Mwili wa binadamu unajumuisha mifumo tata ya viungo inayoshirikiana. Mfumo wa usagaji chakula huvunja lishe kuwa virutubisho vya kuupa mwili nishati. Mfumo wa usafirishaji wa damu unaoongozwa na moyo (pampu kuu) unasambaza oksijeni na virutubisho kote mwilini kupitia mishipa ya damu. Mapafu husaidia kubadilisha hewa chafu ya kaboni dioksidi kuwa oksijeni safi, huku ubongo ukiratibu amri na hisia zote za mwili."
+  },
+  {
+    "id": "KICD-PRI-G5-SWA-001",
+    "grade": 5,
+    "subject": "Kiswahili",
+    "strand": "Sarufi na Muundo wa Lugha",
+    "substrand": "Muundo wa Sentensi",
+    "topic": "Mpangilio wa Kiima na KiPredicate katika Sentensi",
+    "kicd_code": "KICD/PRI/CBC/G5/SWA/STR-03/LO-01",
+    "language": "sw",
+    "text": "Sentensi sahihi ya Kiswahili ni kundi la maneno yenye maana kamili na ujumbe unaoeleweka. Sentensi sahili ya Kiswahili hugawanyika katika sehemu mbili kuu: Kiima (K), ambacho ni nomino au kirai nomino kinachofanya tendo, na KiPredicate/Kiarifu (A), ambacho kina kitenzi kinachoeleza tendo linalofanyika. Kwa mfano, katika sentensi 'Wanafunzi wenye bidii wamefaulu mtihani', 'Wanafunzi wenye bidii' ni kiima na 'wamefaulu mtihani' ni ki predicate."
+  },
+  {
+    "id": "KICD-PRI-G6-SWA-001",
+    "grade": 6,
+    "subject": "Kiswahili",
+    "strand": "Mazingira na Uhifadhi",
+    "substrand": "Mzunguko wa Maji",
+    "topic": "Mzunguko wa Maji na Uhifadhi wa Misitu",
+    "kicd_code": "KICD/PRI/CBC/G6/SWA/STR-04/LO-01",
+    "language": "sw",
+    "text": "Mzunguko wa maji ni mwendo wa kudumu wa maji kutoka ardhini, maziwani na baharini kuelekea angani kisha kurudi tena ardhini. Miale ya jua hupasha maji moto na kusababisha mvukizo. Mvuke unapopaa na kukutana na hewa ya baridi, huungana na kutengeneza mawingu (mgando). Mawingu yakilelemewa huachia matone ya mvua. Uhifadhi wa misitu kama vile Mau na Aberdare ni muhimu mno kulinda vyanzo hivi vya mvua nchini Kenya."
+  },
+  {
+    "id": "KICD-PRI-G7-MAT-001",
+    "grade": 7,
+    "subject": "Mathematics",
+    "strand": "Algebra",
+    "substrand": "Linear Equations",
+    "topic": "Solving First-Degree Algebraic Linear Equations",
+    "kicd_code": "KICD/JSS/CBC/G7/MAT/STR-05/LO-01",
+    "language": "en",
+    "text": "A linear equation in one unknown variable is an algebraic statement of equality where the exponent of the variable is strictly 1. It represents a constant rate of change. The canonical form is ax + b = c, where a, b, and c are rational coefficients with a ≠ 0. To solve an equation such as 3x + 7 = 28, apply inverse operations symmetrically: subtract 7 from both sides to obtain 3x = 21, then divide by 3 to derive the unique root solution x = 7."
+  }
+]
