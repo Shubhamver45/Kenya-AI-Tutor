@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenya AI Tutor — Professional Educational AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="chat-app">
+
+  <!-- Left Sidebar (ChatGPT-style) -->
+  <aside class="chat-sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="brand-row">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <span class="brand-name">Kenya AI Tutor</span>
+          <span class="brand-badge">CBC KICD</span>
+        </div>
+      </div>
+
+      <button type="button" class="btn-new-chat" id="btn-new-chat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        <span>New Chat</span>
+      </button>
+    </div>
+
+    <!-- Conversations / Recent Questions -->
+    <div class="sidebar-history-section">
+      <div class="history-label">Recent Chats</div>
+      <div class="history-list" id="history-list">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- Sidebar Bottom Controls -->
+    <div class="sidebar-bottom">
+      <!-- Grade selector -->
+      <div class="control-row">
+        <label for="grade-select" class="sidebar-label">Grade Level</label>
+        <select id="grade-select" class="select-field">
+          <option value="4">Grade 4 (CBC)</option>
+          <option value="5">Grade 5 (CBC)</option>
+          <option value="6" selected>Grade 6 (CBC)</option>
+          <option value="7">Grade 7 (Junior Sec)</option>
+        </select>
+      </div>
+
+      <!-- Language selector -->
+      <div class="control-row">
+        <label class="sidebar-label">Language / Lugha</label>
+        <div class="lang-switch">
+          <button type="button" class="lang-btn active" id="lang-en" data-lang="en">English</button>
+          <button type="button" class="lang-btn" id="lang-sw" data-lang="sw">Kiswahili</button>
+        </div>
+      </div>
+
+      <!-- User footer -->
+      <div class="sidebar-user">
+        <div class="user-avatar">S</div>
+        <div class="user-details">
+          <span class="user-name">Primary Student</span>
+          <span class="user-sub">Nairobi · Upper Primary</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Chat Workspace (Full Width, Centered Chat Container) -->
+  <main class="chat-main">
+    <!-- Top Minimalist Bar -->
+    <header class="chat-header">
+      <div class="header-left">
+        <button type="button" class="btn-toggle-sidebar" id="btn-toggle-sidebar" title="Toggle Sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div class="model-badge">
+          <span class="status-dot"></span>
+          <span class="model-name">Kenya AI Tutor</span>
+          <span class="model-version">Gemini 3.5 Flash</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button type="button" class="btn-header-action" id="btn-clear-chat" title="Clear current chat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+          <span>Clear Chat</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Scrollable Messages Container -->
+    <div class="chat-scroll-area" id="chat-scroll-area">
+      <div class="chat-container" id="chat-messages">
+        <!-- Initial Welcome Empty State (ChatGPT style) -->
+        <div class="chat-welcome-state" id="chat-welcome-state">
+          <div class="welcome-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" rx="14" fill="#2563EB"/>
+              <path d="M14 16C14 14.8954 14.8954 14 16 14H21.5C23.433 14 25 15.567 25 17.5V31C25 29.6193 23.8807 28.5 22.5 28.5H16C14.8954 28.5 14 27.6046 14 26.5V16Z" fill="white"/>
+              <path d="M34 16C34 14.8954 33.1046 14 32 14H26.5C24.567 14 23 15.567 23 17.5V31C23 29.6193 24.1193 28.5 25.5 28.5H32C33.1046 28.5 34 27.6046 34 26.5V16Z" fill="#93C5FD"/>
+            </svg>
+          </div>
+          <h1 class="welcome-title">How can I help you learn today?</h1>
+          <p class="welcome-subtitle">Ask any question across Mathematics, Science & Technology, English, Kiswahili, or Social Studies.</p>
+
+          <div class="starter-prompts-grid">
+            <button type="button" class="starter-card" data-prompt="What is a fraction and how do numerators and denominators work?">
+              <span class="starter-card-title">What is a fraction?</span>
+              <span class="starter-card-desc">Explain numerators and denominators with everyday examples</span>
+            </button>
+            <button type="button" class="starter-card" data-prompt="Explain the main human internal organs and their functions in Science">
+              <span class="starter-card-title">Human Internal Organs</span>
+              <span class="starter-card-desc">Learn how the heart, brain, lungs, and stomach work together</span>
+            </button>
+            <button type="button" class="starter-card" data-prompt="What is the difference between proper nouns, common nouns, and collective nouns in English?">
+              <span class="starter-card-title">Proper vs Common Nouns</span>
+              <span class="starter-card-desc">Grammar rules and sentence examples for English class</span>
+            </button>
+            <button type="button" class="starter-card" data-prompt="Eleza muundo wa sentensi na kazi za viungo vya mwili katika Kiswahili">
+              <span class="starter-card-title">Mifumo ya Mwili (Kiswahili)</span>
+              <span class="starter-card-desc">Maelezo wazi ya viungo vya ndani kwa lugha ya Kiswahili</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Chat Input Bar (ChatGPT / Claude Style) -->
+    <div class="chat-input-wrapper">
+      <div class="chat-input-box">
+        <form id="chat-form" class="chat-form">
+          <textarea
+            id="chat-input"
+            class="chat-textarea"
+            rows="1"
+            placeholder="Message Kenya AI Tutor..."
+            required
+          ></textarea>
+          <button type="submit" class="btn-send" id="btn-submit" title="Send message">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      </div>
+      <p class="input-disclaimer">
+        Kenya AI Tutor provides curriculum-grounded assistance. Verify critical examination details.
+      </p>
+    </div>
+  </main>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
