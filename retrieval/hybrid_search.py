@@ -87,18 +87,37 @@ def _init_vector_engine():
         _corpus_embeddings = embs
         _vector_backend = "multilingual-e5-small (Dense Neural Transformer)"
     except Exception as e:
-        from sklearn.feature_extraction.text import TfidfVectorizer
-        print(f"[retrieval] Using fast multilingual semantic n-gram vectorizer ({e})...")
-        vec = TfidfVectorizer(
-            analyzer="char_wb",
-            ngram_range=(3, 5),
-            sublinear_tf=True,
-            norm="l2"
-        )
-        embs = vec.fit_transform(passages).toarray()
-        _vector_encoder = vec
-        _corpus_embeddings = embs
-        _vector_backend = "Multilingual Semantic Vectorizer (Sublinear N-Gram / Cosine)"
+        try:
+            from sklearn.feature_extraction.text import TfidfVectorizer
+            print(f"[retrieval] Using fast multilingual semantic n-gram vectorizer ({e})...")
+            vec = TfidfVectorizer(
+                analyzer="char_wb",
+                ngram_range=(3, 5),
+                sublinear_tf=True,
+                norm="l2"
+            )
+            embs = vec.fit_transform(passages).toarray()
+            _vector_encoder = vec
+            _corpus_embeddings = embs
+            _vector_backend = "Multilingual Semantic Vectorizer (Sublinear N-Gram / Cosine)"
+        except Exception as err:
+            print(f"[retrieval] Using pure numpy fallback vectorizer ({err})...")
+            vocab: dict[str, int] = {}
+            for p in passages:
+                for w in _tokenize_text(p):
+                    if w not in vocab:
+                        vocab[w] = len(vocab)
+            mat = np.zeros((len(passages), max(1, len(vocab))), dtype=np.float32)
+            for i, p in enumerate(passages):
+                for w in _tokenize_text(p):
+                    if w in vocab:
+                        mat[i, vocab[w]] += 1.0
+                norm = np.linalg.norm(mat[i])
+                if norm > 0:
+                    mat[i] /= norm
+            _vector_encoder = vocab
+            _corpus_embeddings = mat
+            _vector_backend = "Fallback Token Frequency Vectorizer"
 
 
 def _encode_query(query: str) -> np.ndarray:
@@ -106,6 +125,16 @@ def _encode_query(query: str) -> np.ndarray:
     if _vector_backend.startswith("multilingual-e5"):
         q_emb = _vector_encoder.encode([f"query: {query}"], normalize_embeddings=True)[0]
         return q_emb
+    elif isinstance(_vector_encoder, dict):
+        vocab = _vector_encoder
+        vec = np.zeros(len(vocab), dtype=np.float32)
+        for w in _tokenize_text(query):
+            if w in vocab:
+                vec[vocab[w]] += 1.0
+        norm = np.linalg.norm(vec)
+        if norm > 0:
+            vec /= norm
+        return vec
     else:
         q_vec = _vector_encoder.transform([query]).toarray()[0]
         norm = np.linalg.norm(q_vec)

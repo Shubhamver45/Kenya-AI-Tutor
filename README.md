@@ -12,19 +12,6 @@ Designed to overcome severe pupil-to-teacher disparities (exceeding 1:45 in publ
 
 ---
 
-## 📑 Official Technical Architecture & Delivery Report
-
-The full 12-page systems engineering specification and delivery certification is available in publication-ready PDF format:
-
-- 📄 **[Kenya AI Tutor: Professional Engineering Architecture Report (PDF)](Kenya_AI_Tutor_Professional_Engineering_Report.pdf)**
-- 📋 **[Kenya AI Tutor: Technical Approach Plan Reference (PDF)](AI_Learning_Assistant_Technical_Approach_Plan.pdf)**
-
-<p align="center">
-  <img src="report_assets/Kenya_AI_Tutor_Professional_Engineering_Report.pdf.png" alt="Report Cover" width="480" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-</p>
-
----
-
 ## 🌟 Key Capabilities & Architectural Innovations
 
 1. **Strict KICD Curriculum Grounding (0.00% Hallucination Tolerance):**  

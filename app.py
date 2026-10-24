@@ -21,7 +21,12 @@ from cost.calculator import calculate_capacity, get_three_scenarios
 from evaluation.eval_suite import run_evaluation
 from llm.client import configure_llm, get_llm_config
 
-app = Flask(__name__)
+BASE_DIR = Path(__file__).resolve().parent
+app = Flask(
+    __name__,
+    template_folder=str(BASE_DIR / "templates"),
+    static_folder=str(BASE_DIR / "static"),
+)
 
 
 @app.route("/")
