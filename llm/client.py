@@ -21,24 +21,36 @@ from openai import OpenAI
 _ENV_PATH = Path(__file__).resolve().parent.parent / ".env"
 load_dotenv(_ENV_PATH)
 
-_api_key = (
-    os.getenv("GEMINI_API_KEY")
-    or os.getenv("OPENROUTER_API_KEY")
-    or os.getenv("GROQ_API_KEY")
-    or os.getenv("OPENAI_API_KEY", "")
-).strip()
+_gemini_key = os.getenv("GEMINI_API_KEY", "").strip()
+_openrouter_key = os.getenv("OPENROUTER_API_KEY", "").strip()
+_groq_key = os.getenv("GROQ_API_KEY", "").strip()
+_openai_key = os.getenv("OPENAI_API_KEY", "").strip()
 
-_default_base = (
-    "https://generativelanguage.googleapis.com/v1beta/openai/"
-    if _api_key.startswith("AQ.")
-    else "https://openrouter.ai/api/v1"
+_api_key = _gemini_key or _openrouter_key or _groq_key or _openai_key
+
+is_gemini = bool(
+    _gemini_key
+    or _api_key.startswith("AQ.")
+    or _api_key.startswith("AIza")
+    or "generativelanguage" in os.getenv("OPENAI_BASE_URL", "").lower()
 )
 
-_default_model = (
-    "gemini-3.5-flash-lite"
-    if _api_key.startswith("AQ.")
-    else "minimax/minimax-m3.1-flash:free"
-)
+if is_gemini:
+    _default_base = "https://generativelanguage.googleapis.com/v1beta/openai/"
+    _default_model = "gemini-3.5-flash-lite"
+    _default_fallbacks = ["gemini-3.5-flash-lite", "gemini-flash-lite-latest"]
+elif _openrouter_key or _api_key.startswith("sk-or-"):
+    _default_base = "https://openrouter.ai/api/v1"
+    _default_model = "minimax/minimax-m3.1-flash:free"
+    _default_fallbacks = ["minimax/minimax-m3.1-flash:free", "google/gemini-2.0-flash-lite-preview-02-05:free"]
+elif _groq_key or _api_key.startswith("gsk_"):
+    _default_base = "https://api.groq.com/openai/v1"
+    _default_model = "llama-3.1-8b-instant"
+    _default_fallbacks = ["llama-3.1-8b-instant"]
+else:
+    _default_base = "https://generativelanguage.googleapis.com/v1beta/openai/"
+    _default_model = "gemini-3.5-flash-lite"
+    _default_fallbacks = ["gemini-3.5-flash-lite"]
 
 _CONFIG = {
     "api_key": _api_key,
@@ -46,12 +58,7 @@ _CONFIG = {
     "model": os.getenv("LLM_MODEL", _default_model).strip(),
 }
 
-FALLBACK_MODELS = [
-    "gemini-3.5-flash-lite",
-    "gemini-flash-lite-latest",
-    "gemma-4-26b-a4b-it",
-    "minimax/minimax-m3.1-flash:free",
-]
+FALLBACK_MODELS = _default_fallbacks
 
 
 def configure_llm(api_key: str | None = None, base_url: str | None = None, model: str | None = None):
@@ -66,7 +73,7 @@ def configure_llm(api_key: str | None = None, base_url: str | None = None, model
 
 def _save_to_env():
     try:
-        key_var = "GEMINI_API_KEY" if _CONFIG["api_key"].startswith("AQ.") else "OPENROUTER_API_KEY"
+        key_var = "GEMINI_API_KEY" if is_gemini else "OPENROUTER_API_KEY"
         content = (
             f"{key_var}={_CONFIG['api_key']}\n"
             f"OPENAI_BASE_URL={_CONFIG['base_url']}\n"
@@ -86,13 +93,13 @@ def get_llm_config() -> dict[str, str]:
 def _get_client() -> OpenAI:
     key = (
         _CONFIG["api_key"]
-        or os.getenv("OPENROUTER_API_KEY")
         or os.getenv("GEMINI_API_KEY")
+        or os.getenv("OPENROUTER_API_KEY")
         or os.getenv("GROQ_API_KEY")
     )
     if not key:
         raise ValueError(
-            "API Key is missing. Please provide your OpenRouter API key in the UI or in .env."
+            "API Key is missing. Please provide your Gemini or OpenRouter API key in the UI or in environment variables."
         )
     default_headers = {}
     if "openrouter.ai" in _CONFIG["base_url"]:
@@ -104,13 +111,17 @@ def _get_client() -> OpenAI:
         api_key=key,
         base_url=_CONFIG["base_url"],
         default_headers=default_headers,
+        timeout=10.0,
     )
 
 
 def _call_llm_with_fallback(messages: list[dict], temperature: float = 0.0, max_tokens: int = 350) -> tuple[Any, str]:
-    """Calls primary model with automatic 429 quota failover to alternative free models."""
+    """Calls primary model with automatic 429 quota failover to alternative models."""
     client = _get_client()
-    candidates = [_CONFIG["model"]] + [m for m in FALLBACK_MODELS if m != _CONFIG["model"]]
+    candidates = [_CONFIG["model"]]
+    for m in FALLBACK_MODELS:
+        if m not in candidates:
+            candidates.append(m)
     
     last_err = None
     for model_name in candidates:
@@ -120,12 +131,13 @@ def _call_llm_with_fallback(messages: list[dict], temperature: float = 0.0, max_
                 messages=messages,
                 temperature=temperature,
                 max_tokens=max_tokens,
+                timeout=10.0,
             )
             return resp, model_name
         except Exception as e:
             err_str = str(e)
             if "429" in err_str or "quota" in err_str.lower() or "not found" in err_str.lower():
-                print(f"[llm] Model {model_name} quota/error ({err_str[:80]}...). Trying next free model...")
+                print(f"[llm] Model {model_name} quota/error ({err_str[:80]}...). Trying next model...")
                 last_err = e
                 continue
             else:

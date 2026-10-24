@@ -51,13 +51,18 @@ def run_pipeline(
         trace.chunks = []
         trace.retrieval_ms = 0.0
         trace.retrieval_mode = "conversational_direct"
-        ans_text, ans_usage = answer(query=question, chunks=[])
-        trace.answer = ans_text
-        trace.answer_usage = ans_usage
-        trace.model = ans_usage.get("model", "gemini-3.5-flash-lite")
+        if q_lower in {"hujambo", "habari", "sasa", "mambo"}:
+            greeting_resp = "Hujambo! Karibu kwenye Kenya AI Tutor. Je, ungependa kujifunza kuhusu somo gani leo? (Sayansi, Hisabati, Kilimo, au Kiswahili) 😊"
+        elif q_lower in {"thanks", "thank you", "asante", "asante sana"}:
+            greeting_resp = "Karibu sana! Let me know whenever you have another question from your textbooks or class lessons. Happy learning!"
+        else:
+            greeting_resp = "Hello! I am your Kenya AI Tutor, ready to help you with your Grade 4–6 CBC lessons in Science & Technology, Mathematics, Agriculture, or Kiswahili. What would you like to explore today? 😊"
+        trace.answer = greeting_resp
+        trace.answer_usage = {"mode": "instant_greeting", "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "latency_ms": 1, "model": "instant-greeting-cache"}
+        trace.model = "gemini-3.5-flash-lite"
         trace.validation_passed = True
         trace.total_ms = round((time.perf_counter() - t_start) * 1000, 2)
-        trace.total_tokens = ans_usage.get("total_tokens", 0)
+        trace.total_tokens = 0
         trace_store.add(trace)
         return trace
 
